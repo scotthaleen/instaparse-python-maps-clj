@@ -31,6 +31,21 @@
       (list [:object [:pair [:keyword "k"] [:value [:string "a b c"]]]])
       (parser "{'k': 'a b c'}"))))
 
+  (testing "map with boolean values"
+    (is
+     (=
+      (list [:object
+             [:pair [:keyword "t"] [:value [:boolean "True"]]]
+             [:pair [:keyword "f"] [:value [:boolean "False"]]]])
+      (parser "{'t': True, 'f': False }"))))
+
+  (testing "map with nulls (None)"
+    (is
+     (=
+      (list [:object
+             [:pair [:keyword "k"] [:value [:none "None"]]]])
+      (parser "{'k': None }"))))
+
   (testing "complex nested map"
     (is
      (=
