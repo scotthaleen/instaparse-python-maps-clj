@@ -3,6 +3,9 @@
 A _good enough_ EBNF [instaparser](https://github.com/Engelberg/instaparse) to parse simple python maps to clojure data structures
 
 
+[![Build Status](https://travis-ci.org/scotthaleen/instaparse-python-maps-clj.svg?branch=master)](https://travis-ci.org/scotthaleen/instaparse-python-maps-clj)
+
+
 Often there are cases when python maps have been dumped directly to a file. This is a simple parser to parse that data in to clojure data structures.
 
 
