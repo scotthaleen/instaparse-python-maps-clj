@@ -33,7 +33,6 @@ Often there are cases when python maps have been dumped directly to a file. This
 
 ### TODO
 
-- [ ] tests for `True`, `False`, `None`
 - [ ] decimals
 - [ ] escaped characters in strings
 - [ ] reconstruct clojure maps from parser output
