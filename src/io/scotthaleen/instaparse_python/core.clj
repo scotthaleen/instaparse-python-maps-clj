@@ -8,7 +8,7 @@
           <members> ::= <whitespace>? pair  | <whitespace>? pair <','> <whitespace>? members
           object ::= <'{'> <'}'>  | <'{'> members <'}'>
           array ::= <'['> <']'> | <'['> elements <']'>
-          pair ::= keyword <':'> <whitespace>? value
+          pair ::= keyword <':'> <whitespace>? value <whitespace>?
           <elements> ::= value | value <','> <whitespace>? elements
           <quote> = <'\\''>
           <string_ascii> =  #'[^\\']+'
@@ -20,4 +20,3 @@
           value ::= string | number | object | array | boolean | none
           whitespace = #'\\s+'
 "))
-
