@@ -7,17 +7,36 @@
 
 (deftest python-map-test
 
+  (testing "empty object"
+    (is
+     (=
+      (list [:object])
+      (parser "{}"))))
+
   (testing "simple map parsing"
     (is
      (=
       (list [:object [:pair [:keyword "age"] [:value [:number "25"]]]])
       (parser "{u'age': 25}"))))
 
-  (testing "empty object"
+  (testing "negative numbers"
     (is
      (=
-      (list [:object])
-      (parser "{}"))))
+      (list [:object [:pair [:keyword "k"] [:value [:number "-42"]]]])
+      (parser "{'k': -42 }" ))))
+
+  (testing "decimal numbers"
+    (is
+     (=
+      (list [:object [:pair [:keyword "k"] [:value [:decimal "1.012"]]]])
+      (parser "{'k': 1.012 }" ))))
+
+  (testing "negative decimal numbers"
+    (is
+     (=
+      (list [:object [:pair [:keyword "k"] [:value [:decimal "-99.12"]]]])
+      (parser "{'k': -99.12 }" ))))
+
 
   (testing "value with unicode char"
     (is
